@@ -1,0 +1,43 @@
+#wrapper {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.divInput {
+    width: 100%;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+.divInput input {
+    width: 20%;
+    margin: 0 20px;
+    padding: 10px 0;
+}
+.divSelect {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.divSelect select {
+    width: 10%;
+    margin: 0 20px;
+    padding: 10px 0;
+}
+
+#btn {
+    background: green;
+    color: aliceblue;
+    margin: 50px 0;
+    padding: 10px 30px;
+}
+
+#result {
+    width: 50%;
+    padding: 20px 0;
+    border: 1px solid black;
+}
