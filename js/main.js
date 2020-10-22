@@ -12,8 +12,8 @@ async function changePortal(value, sn, mac) {
             `http://portal2.vivat-tv.com/portal/ajax/switch_portals.php?portal=${value}&mac=${mac}&sn=${sn}`,
             { mode: 'no-cors' }
         )
-            .then((res) => !console.log(res.status) && res.statusText)
-            .then((text) => (result.textContent = text))
+            .then((res) => console.log(res))
+            .then(() => (result.textContent = `Перевело на ${value}`))
             .catch((e) => console.log(e));
     }
 
@@ -22,8 +22,8 @@ async function changePortal(value, sn, mac) {
             `http://beer.vivat-tv.com/portal/adm/vlad/switch2portal.php?mac=${mac}&sn=${sn}&portal=${value}`,
             { mode: 'no-cors' }
         )
-            .then((res) => !console.log(res.status) && res.statusText)
-            .then((text) => (result.textContent = text))
+            .then((res) => console.log(res))
+            .then(() => (result.textContent = `Перевело на ${value}`))
             .catch((e) => console.log(e));
     }
 }
