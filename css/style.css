@@ -41,3 +41,31 @@
     padding: 20px 0;
     border: 1px solid black;
 }
+@media (max-width: 1199px) {
+    .divSelect select {
+        width: 40%;
+    }
+    .divInput input {
+        width: 30%;
+    }
+    #result {
+        width: 80%;
+    }
+}
+
+@media (max-width: 767px) {
+    .divSelect select {
+        width: 80%;
+    }
+    .divInput input {
+        width: 80%;
+        margin: 10px 0;
+    }
+    .divInput {
+        flex-direction: column;
+        align-items: center;
+    }
+    #result {
+        width: 80%;
+    }
+}

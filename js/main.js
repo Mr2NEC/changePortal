@@ -18,9 +18,10 @@ async function changePortal(value, sn, mac) {
 
     if (value === 'new' || value === 'old') {
         fetch(
-            `http://beer.vivat-tv.com/portal/adm/vlad/switch2portal.php?mac=${mac}&sn=${sn}&portal=${value}`
+            `http://beer.vivat-tv.com/portal/adm/vlad/switch2portal.php?mac=${mac}&sn=${sn}&portal=${value}`,
+            { mode: 'no-cors' }
         )
-            .then((res) => console.log(res.text))
+            .then((res) => console.log(res))
             .catch((e) => console.log(e));
     }
 }
