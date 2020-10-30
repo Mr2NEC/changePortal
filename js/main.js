@@ -7,23 +7,18 @@ let result = document.querySelector('#result');
 btn.addEventListener('click', getValue);
 
 async function changePortal(value, sn, mac) {
-    if (value === 'vivat.tv' || value === 'vivat.live') {
+    if (
+        value === 'vivat.tv' ||
+        value === 'vivat.live.old' ||
+        value === 'vivat.live.new' ||
+        value === 'hmara.tv'
+    ) {
         fetch(
-            `http://portal2.vivat-tv.com/portal/ajax/switch_portals.php?portal=${value}&mac=${mac}&sn=${sn}`,
+            `http://portal2.vivat-tv.com/portal/adm/vlad/switch_portals.php?portal=${value}&mac=${mac}&sn=${sn}`,
             { mode: 'no-cors' }
         )
-            .then((res) => console.log(res))
-            .then(() => (result.textContent = `Перевело на ${value}`))
-            .catch((e) => console.log(e));
-    }
-
-    if (value === 'new' || value === 'old') {
-        fetch(
-            `http://beer.vivat-tv.com/portal/adm/vlad/switch2portal.php?mac=${mac}&sn=${sn}&portal=${value}`,
-            { mode: 'no-cors' }
-        )
-            .then((res) => console.log(res))
-            .then(() => (result.textContent = `Перевело на ${value}`))
+            .then((res) => res.text())
+            .then((text) => (result.innerHTML = text))
             .catch((e) => console.log(e));
     }
 }
