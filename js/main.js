@@ -13,21 +13,26 @@ async function changePortal(value, sn, mac) {
         value === 'vivat.live.new' ||
         value === 'hmara.tv'
     ) {
-        fetch(
-            `http://portal2.vivat-tv.com/portal/adm/vlad/switch_portals.php?portal=${value}&mac=${mac}&sn=${sn}`,
-            { mode: 'no-cors' }
-        )
-            .then((res) => res.text())
-            .then((text) => (result.innerHTML = text))
-            .catch((e) => console.log(e));
+        try {
+            let response = await fetch(
+                `http://portal2.vivat-tv.com/portal/adm/vlad/switch_portals.php?portal=${value}&mac=${mac}&sn=${sn}`,
+                { mode: 'cors' }
+            );
+
+            if (response.ok) {
+                let text = await response.text();
+                result.innerHTML = text;
+            }
+        } catch (err) {
+            alert(err);
+        }
     }
 }
 
 function getValue() {
     if (sn.value !== '' && mac.value !== '') {
-        console.log('ok');
         changePortal(select.value, sn.value, mac.value);
     } else {
-        console.log('не ok');
+        alert('Нужно указать SN и MAC');
     }
 }
